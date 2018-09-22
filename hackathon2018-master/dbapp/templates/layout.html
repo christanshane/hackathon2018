@@ -22,6 +22,9 @@
 		<link type="text/css" rel="stylesheet" href="{% static 'css/libs/DataTables/extensions/dataTables.colVis.css' %}" />
 		<link type="text/css" rel="stylesheet" href="{% static 'css/libs/DataTables/extensions/dataTables.tableTools.css' %}" />
         <link type="text/css" rel="stylesheet" href="{% static 'css/print.css' %}" />
+        <link type="text/css" rel="stylesheet" href="{% static 'db_app/css/style.css' %}" />
+        <link href="{% static 'db_app/SmartWizard-master/dist/css/smart_wizard.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'db_app/SmartWizard-master/dist/css/smart_wizard_theme_arrows.css' %}" rel="stylesheet" type="text/css" />
 		<!-- END STYLESHEETS -->
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,7 +44,7 @@
 						<li class="header-nav-brand" >
 							<div class="brand-holder">
 								<a href="{% url 'home' %}">
-									<span class="text-lg text-light text-danger">DIGITAL</span><span class="text-lg text-bold text-primary"> BACOLOD</span>
+                                    <span class="text-lg text-light text-primary"><img src="{% static 'db_app/images/db_logo2.png' %}" id="brand-logo"> DIGITAL BACOLOD</span>
 								</a>
 							</div>
 						</li>
@@ -54,16 +57,14 @@
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="headerbar-right">
-					<ul class="header-nav header-nav-profile" style="margin: 0px;">
+					<ul class="header-nav header-nav-profile">
 						<li class="dropdown">
 							<a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
 								<span class="profile-info">
-									<h4 class="text-lg text-bold text-primary"> <span class="fa fa-user"></span> User Account</h4>
+									<h4 class="text-lg text-bold text-primary"><span class="fa fa-user"></span> User Account</h4>
 								</span>
 							</a>
 							<ul class="dropdown-menu animation-dock">
-
-								<li class="divider"></li>
 								<li><a href="{% url 'logout' %}"><i class="fa fa-fw fa-power-off text-danger"></i> Logout</a></li>
 							</ul><!--end .dropdown-menu -->
 						</li><!--end .dropdown -->
@@ -110,7 +111,7 @@
 					</div>
 					<div class="expanded">
 						<a href="{% url 'home' %}">
-							<span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>
+							{#<span class="text-lg text-bold text-primary ">MATERIAL&nbsp;ADMIN</span>#}
 						</a>
 					</div>
 				</div>
@@ -131,15 +132,14 @@
 						<!-- BEGIN ORDER -->
 						<li class="gui-folder">
 							<a>
-								<div class="gui-icon"><i class="fa fa-envelope"></i></div>
-								<span class="title">Application Forms</span>
+								<div class="gui-icon"><i class="fa fa-document"></i></div>
+								<span class="title">Forms</span>
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="{% url 'new' %}" ><span class="title">Brgy. Clearance</span></a></li>
-								<li><a href="{% url 'pc_form'%}" ><span class="title">Police Clearance</span></a></li>
-								<li><a href="{% url 'nbic_form'%}" ><span class="title">NBI Clearance</span></a></li>
-								<li><a href="{% url 'home'%}" ><span class="title">All Clearances</span></a></li>
+								<li><a href="" ><span class="title">Barangay Clearance</span></a></li>
+								<li><a href="" ><span class="title">Police Clearance</span></a></li>
+                                <li><a href="" ><span class="title">NBI Clearance</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END ORDER -->
@@ -148,18 +148,18 @@
 						<li class="gui-folder">
 							<a>
 								<div class="gui-icon"><i class="fa fa-user"></i></div>
-								<span class="title">User Portfolio</span>
+								<span class="title">Profile</span>
 							</a>
 							<!--start submenu -->
 							<ul>
-								<li><a href="#" ><span class="title">Portfolio</span></a></li>
+
+								<li><a href="{% url 'logout' %}" ><span class="title">Logout</span></a></li>
 							</ul><!--end /submenu -->
 						</li><!--end /menu-li -->
 						<!-- END PROFILE -->
 
 					</ul><!--end .main-menu -->
 					<!-- END MAIN MENU -->
-
 				</div><!--end .menubar-scroll-panel-->
 			</div><!--end #menubar-->
 			<!-- END MENUBAR -->
@@ -187,7 +187,9 @@
 		<script src="{% static 'js/core/AppVendor.js' %}"></script>
 		<script src="{% static 'js/core/Demo.js' %}"></script>
         <script src="{% static 'js/core/DemoTableDynamic.js' %}"></script>
+        <script src="{% static 'db_app/js/custom.js' %}"></script>
+        <script src="{% static 'db_app/SmartWizard-master/dist/js/jquery.smartWizard.min.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<!-- END JAVASCRIPT -->
-
 	</body>
 </html>
