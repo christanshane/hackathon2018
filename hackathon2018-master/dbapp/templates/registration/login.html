@@ -1,77 +1,51 @@
-{% extends 'base/base.html' %}
-
-{% block content %}
-{% if next %}
-    {% if user.is_authenticated %}
-    <p style="color: ;">Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-        <center><p style="columns: green;">Please login to see this page.</p></center>
-    {% endif %}
-{% endif %}
-    <body>
-    <center>
-            <div class="container">
-        <form class="form-horizontal" role="form" method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {% block content %}
+        {% if next %}
+            <p>You can't access that page.</p>
+        {% endif %}
+        <div class="container">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <h2>Login</h2>
-                    <hr>
+              <div class="col-sm-9 col-md-7 col-lg-4 mx-auto">
+                <div class="card card-signin my-5">
+                <div class="card-logo">
+                    <img src="">
                 </div>
-            </div>
-            {% if form.errors %}
-        <center><p>Your username and password didn't match. Please try again.</p></center>
-            {% endif %}
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="form-group has-danger">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                            {{ form.username }}
+                  <div class="card-body">
+                    {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <p>There's something wrong with what you entered!</p>
                         </div>
-                    </div>
+                    {% endif %}
+                    <h5 class="card-title text-center">Log In</h5>
+                    <br>
+                    <form class="login-form" method="post" action="{% url 'login' %}" id="login-form">
+                    {% csrf_token %}
+                      <div class="form-label-group">
+                        <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+                      </div>
+                        <br>
+                      <div class="form-label-group">
+                        <input type="password" id="password" class="form-control" placeholder="Password" required>
+                      </div>
+                        <br>
+                      <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember password</label>
+                      </div>
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </form>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                            <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                            {{ form.password }}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                        <!-- Put password error message here -->
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Login</button>
-                </div>
-            </div>
-            <br>
-        </form>
-    </div>
-    </center>
-    </body>
-{% endblock %}
-
-{% block javascript %}
-
-<script>
-{% if not user.is_authenticated %}
-$("ul.nav.navbar-nav.navbar-right").css("display","none");
-{% endif %}
-</script>
-
-{% endblock %}
+          </div>
+    {% endblock %}
+</body>
+</html>
