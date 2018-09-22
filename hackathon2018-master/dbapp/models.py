@@ -2,16 +2,16 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
-class BC_Form:
+class BC_Form(models.Model):
     bc_name = models.CharField(max_length=25, default='')
     bc_address = models.CharField(max_length=25, default='')
     bc_age = models.CharField(max_length=25, default='')
     bc_dateissued = models.DateField(blank=True)
 
     def __unicode__(self):
-        return self.pk
+        return self.bc_name
 
-class PC_Form:
+class PC_Form(models.Model):
     pc_name = models.CharField(max_length=25, default='')
     pc_address = models.CharField(max_length=25, default='')
     pc_place_of_birth = models.CharField(max_length=25, default='')
@@ -21,7 +21,7 @@ class PC_Form:
     def __unicode__(self):
         return self.pk
 
-class NBIC_Form:
+class NBIC_Form(models.Model):
     nbic_name = models.CharField(max_length=25, default='')
     nbic_gender = models.CharField(max_length=25, default='')
     nbic_purpose = models.CharField(max_length=25, default='')
@@ -33,7 +33,7 @@ class NBIC_Form:
     def __unicode__(self):
         return self.pk
 
-class User_Portfolio:
+class User_Portfolio(models.Model):
     up_name = models.CharField(max_length=25, default='')
     up_date_of_birth = models.DateField(blank=True)
     up_gender = models.CharField(max_length=25, default='')
@@ -45,7 +45,8 @@ class User_Portfolio:
     up_place_of_birth = models.CharField(max_length=25, default='')
     up_nationality = models.CharField(max_length=25, default='')
 
-    from django.db import models
+    def __unicode__(self):
+        return self.pk
 
     # Create your models here.
 class Order(models.Model):
@@ -57,3 +58,6 @@ class Order(models.Model):
     payment_option = models.CharField(max_length=50);
     amount = models.IntegerField();
     order_status = models.CharField(max_length=50);
+
+    def __unicode__(self):
+        return self.pk
