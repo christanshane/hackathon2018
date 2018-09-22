@@ -2,18 +2,16 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-		<link rel="stylesheet" href="{% static 'media/style.css' %}">
+		<link rel="stylesheet" href=" {% static 'db_app/css/style.css' %}">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="navbar">
 			<a class="navbar-brand" href="#">
-				<img src="{% static 'media/db_logo2.png' %}">
+				<img src="{% static 'db_app/images/db_logo2.png' %}" width="100" height="100" class="d-inline-block align-top" alt="">
 			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-  			</button>
-  			<div class="navbar-nav">
-			  <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
+  			<div class="navbar-nav ml-auto" style="margin-right: 20px;">
+			 	<a class="nav-item nav-link" href="#">Login </a>
+				<a class="nav-item nav-link" href="#">Register </a>
     		</div>
 		</nav><!-- #navbar -->
 		{% block content %}
