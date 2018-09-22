@@ -24,3 +24,4 @@ class OrderForm(ModelForm):
         model = Order
         fields = ['name','phone','address','delivery_date','product_id','payment_option','amount','order_status']
 
+
